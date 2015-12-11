@@ -1,0 +1,38 @@
+head {
+	
+}
+
+body {
+	background-color: lightblue;
+}
+.center-block {
+ 	 display: block;
+ 	 margin-left: auto;
+  	margin-right: auto;
+}
+.container {
+	height: 2000px;
+}
+
+div #bird {
+	width: 50px;
+	padding: 10px;
+	border: 5px
+	margin-right: 0;
+	margin-left: 0;
+}
+
+img #profimg {
+    float: left;
+    display: block;
+    width: 10em;
+    height: auto;
+    margin: 0 0 5px 5px;
+}
+p.blocktext {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50em
+}
+
+
