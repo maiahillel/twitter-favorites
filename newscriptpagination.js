@@ -30,7 +30,6 @@ function ourFollowers() {
 		        	window.alert('Too many requests, please wait a few minutes');
 		        	return;
 		        }
-		        console.log("our followers:29", ourFollowersList.length);
 		        getInfluencerFollowers(influencersList, influencer);
 			}
 		);
@@ -42,7 +41,6 @@ function getInfluencerFollowers(list,index){
 		    "followers_ids",
 		    {screen_name:list[index]}, 
 		    function (reply) {
-		    	console.log("getInfluencerFollowers:41");
 		        followersList = reply.ids;
 		      	loadNext();
 			}
@@ -102,7 +100,6 @@ function loadNext() {
 				count:numOfTweets,
 				include_rts:'false'},
 					function (reply) {
-						console.log(reply);
 						tweetsList.push(reply);
 						loaded++;
 						// Check if this is the first follower to show on screen
@@ -128,9 +125,7 @@ function nextUser(direction) {
 	if ( direction > 0 ) {
 		followerShowing++;
 		tweet = -1;
-
-		console.log('loaded :130 ', loaded);
-		console.log('followerShowing :131 ', followerShowing);
+		
 		// Get more tweets loaded in background if there are less than 5 followers tweets loaded
 		if ((loaded - followerShowing ) < 10 ) {
 	 		readyUsers();
@@ -146,7 +141,6 @@ function nextUser(direction) {
 	var current = parseInt(localStorage.getItem('currentFollower'));
 	current++;
 	localStorage.setItem('currentFollower', current);
-	console.log('local storage : ' + localStorage.getItem('currentFollower'));
 	nextTweet(1);
 }
 
@@ -190,7 +184,6 @@ function nextTweet(direction) {
 
 // Favorite the current showing tweet
 function favoriteTweet() {
-	console.log(tweetsList[followerShowing][tweet].id);
 
 	// If the tweet is already favorited, un-favorite it
 	if (tweetsList[followerShowing][tweet].favorited) {
